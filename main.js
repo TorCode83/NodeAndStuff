@@ -16,7 +16,9 @@ Read the terminal output before and after to see the difference
 
 export function start() {
   //your code here
-  // return true
+
+ return true
+
 };
 
 /******************************************************************************
@@ -33,6 +35,14 @@ HINT: Use the modulo operator (%) Google it! 😊
 
 export const oddOrEven = () => {
   //your code here
+
+if (number % 2 === 0) {
+  return "Even";
+}
+else {
+  return "Odd";
+}
+
 };
 
 /******************************************************************************
@@ -47,8 +57,14 @@ Example: "This is cool" should return "THIS IS COOL!"
 
 ******************************************************************************/
 
-export function makeMeLoud() {
+export function makeMeLoud(text) {
   //your code here
+
+text = text.toUpperCase();
+text += "!";
+
+return text;
+
 }
 
 /******************************************************************************
@@ -72,8 +88,26 @@ The function should return:
 
 ******************************************************************************/
 
-export const greeter = () => {
+export const greeter = (name, hour) => {
   //your code here
+
+if (hour >= 0 && hour <= 5) {
+  return "Night Night" + "" + name + "mate";
+}
+
+if (hour >= 6 && hour <= 11) {
+  return "Morning" + "" + name + "mate";
+}
+
+if (hour >= 12 && hour <= 17) {
+  return "Avro" + "" + name + "mate";
+}
+
+if (hour >= 18 && hour <= 23) {
+  return "Evnen" + "" + name +"mate";
+}
+return "Invalid Time Mate"
+
 };
 
 /******************************************************************************
@@ -90,8 +124,15 @@ Example 2: ["One", "Two", "Three", "Four", "Five", "Six"] should return
 ["Two", "Three", "Four", "Five"]
 ******************************************************************************/
 
-export function arrayTrimmer() {
+export function arrayTrimmer(array) {
   //your code here
+if (array.length >= 2) {
+  array = array.slice (1, -1);
+}
+else {
+  return [];
+}
+return array;
 }
 
 /******************************************************************************
@@ -113,8 +154,11 @@ Example3: "   hard        " should return "fun"
 
 ******************************************************************************/
 
-export const cleanAndFun = () => {
+export const cleanAndFun = (myStringtring) => {
   //your code here
+  myString = myString.replace(`hard`, 'fun').trim();
+  return myString;
+
 };
 
 /******************************************************************************
@@ -137,8 +181,16 @@ Use array methods to do the following:
  Return the resulting array.
 ******************************************************************************/
 
-export function marvelEditor() {
+export function marvelEditor(array) {
   //your code here
+
+  array.shift();
+  array.splice(1, array.indexOf("Doctor Strange"), "Skrull");
+  array.splice(0, 1, "Captain America");
+  array = array.join("💪");
+  
+   return array;
+
 }
 
 /******************************************************************************
@@ -168,9 +220,28 @@ Return "😎Primitive values only😎"
 
 ******************************************************************************/
 
-export function coolMaker() {
+export function coolMaker(paramater) {
   //your code here
+
+  if (typeof parameter === "string") {
+    return `😎${parameter}😎`;
+  }
+
+  if (typeof parameter === "number") {
+    return `😎${parameter * 2}😎`;
+  }
+
+  if (typeof parameter === "boolean") {
+    if (parameter) {
+      return "😎Yeah😎";
+    }
+    return "😎Chill😎";
+  }
+
+  return "😎Primitive values only😎";
 }
+
+
 
 /******************************************************************************
 8.
@@ -197,4 +268,19 @@ Example4: (["One", "Two", "Three"], "Two") --> ["One", "Three"]
 
 export const addOrRemove = () => {
   //your code here
+
+  const string = str;
+  const arr = array;
+  if (arr.includes(string)) {
+    arr.splice(arr.indexOf(string), 1);
+    return arr;
+  } else {
+    arr.push(string);
+    return arr;
+  }
+
+const item = "Green";
+const array = ["Red", "Green", "Blue"];
+console.log(addOrRemove(array, item));
+
 };
